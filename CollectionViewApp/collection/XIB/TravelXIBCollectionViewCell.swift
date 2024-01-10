@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol collectionViewCell {
+    func configureCell(city: City)
+}
+
 class TravelXIBCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var cityImageView: UIImageView!
@@ -31,9 +35,6 @@ class TravelXIBCollectionViewCell: UICollectionViewCell {
     }
 }
 
-protocol collectionViewCell {
-    func configureCell(city: City)
-}
 
 extension TravelXIBCollectionViewCell: collectionViewCell {
     func configureCell(city: City) {
