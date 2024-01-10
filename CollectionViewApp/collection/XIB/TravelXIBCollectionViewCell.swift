@@ -16,6 +16,7 @@ class TravelXIBCollectionViewCell: UICollectionViewCell {
     var radius = ((UIScreen.main.bounds.width - (20 * 3)) / 2) / 2
     
     override func awakeFromNib() {
+        super.awakeFromNib()    // ⭐️ 잊지말기
         cityImageView.layer.cornerRadius =  radius
         cityImageView.contentMode = .scaleAspectFill
         
@@ -28,13 +29,17 @@ class TravelXIBCollectionViewCell: UICollectionViewCell {
         cityExplain.numberOfLines = 0
         
     }
-    
+}
+
+protocol collectionViewCell {
+    func configureCell(city: City)
+}
+
+extension TravelXIBCollectionViewCell: collectionViewCell {
     func configureCell(city: City) {
         cityImageView.kf.setImage(with: URL(string: city.city_image))
         
         cityName.text = "\(city.city_name) | \(city.city_english_name)"
         cityExplain.text = city.city_explain
-        
     }
-   
 }

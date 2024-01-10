@@ -7,6 +7,14 @@
 
 import UIKit
 
+protocol UIConfigure {
+    func configureLayout()
+}
+
+protocol Xib {
+    func xibRegister()
+}
+
 enum Identifier: String {
     case TravelCollectionViewCell
     case TravelXIBCollectionViewCell
@@ -19,19 +27,8 @@ class TravelCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let xib = UINib(nibName: Identifier.TravelXIBCollectionViewCell.rawValue, bundle: nil)
-        collectionView.register(xib, forCellWithReuseIdentifier: Identifier.TravelXIBCollectionViewCell.rawValue)
-
-        
-        let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 20
-        let width = UIScreen.main.bounds.width - (spacing * 3)
-        
-        layout.itemSize = CGSize(width: width/2, height: width/2 + 70)
-        layout.minimumLineSpacing = spacing
-        layout.minimumInteritemSpacing = spacing
-        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        collectionView.collectionViewLayout = layout
+        xibRegister()
+        configureLayout()
 
     }
     
@@ -47,4 +44,25 @@ class TravelCollectionViewController: UICollectionViewController {
         return cell
     }
 
+}
+ 
+
+
+extension UICollectionViewController: UIConfigure, Xib {
+    func configureLayout() {
+        let layout = UICollectionViewFlowLayout()
+        let spacing: CGFloat = 20
+        let width = UIScreen.main.bounds.width - (spacing * 3)
+        
+        layout.itemSize = CGSize(width: width/2, height: width/2 + 70)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        collectionView.collectionViewLayout = layout
+    }
+    
+    func xibRegister() {
+        let xib = UINib(nibName: Identifier.TravelXIBCollectionViewCell.rawValue, bundle: nil)
+        collectionView.register(xib, forCellWithReuseIdentifier: Identifier.TravelXIBCollectionViewCell.rawValue)
+    }
 }

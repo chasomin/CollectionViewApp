@@ -15,6 +15,7 @@ class TravelCollectionViewCell: UICollectionViewCell {
     @IBOutlet var cityExplain: UILabel!
     
     override func awakeFromNib() {
+        super.awakeFromNib()    // ⭐️ 잊지말기
         cityImageView.layer.cornerRadius = ((UIScreen.main.bounds.width - (20 * 3)) / 2) / 2
         cityImageView.contentMode = .scaleAspectFill
         
