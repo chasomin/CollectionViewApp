@@ -21,6 +21,9 @@
 		791EC2012B4D3AF700B31565 /* TravelXIBCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791EC1FF2B4D3AF700B31565 /* TravelXIBCollectionViewCell.xib */; };
 		791EC2062B4D3E4900B31565 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791EC2052B4D3E4900B31565 /* CityViewController.swift */; };
 		791EC21E2B4E884400B31565 /* UICollectionViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791EC21D2B4E884400B31565 /* UICollectionViewController+Extension.swift */; };
+		79C0907B2B4EB57D00531882 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C0907A2B4EB57D00531882 /* UIImageView+Extension.swift */; };
+		79C0907D2B4EB5A300531882 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C0907C2B4EB5A300531882 /* UILabel+Extension.swift */; };
+		79C0907F2B4EB80700531882 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C0907E2B4EB80700531882 /* UICollectionViewCell+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		791EC1FF2B4D3AF700B31565 /* TravelXIBCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravelXIBCollectionViewCell.xib; sourceTree = "<group>"; };
 		791EC2052B4D3E4900B31565 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		791EC21D2B4E884400B31565 /* UICollectionViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController+Extension.swift"; sourceTree = "<group>"; };
+		79C0907A2B4EB57D00531882 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		79C0907C2B4EB5A300531882 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		79C0907E2B4EB80700531882 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +82,9 @@
 				79108FE62B4D300200026B8D /* SceneDelegate.swift */,
 				79108FE82B4D300200026B8D /* ViewController.swift */,
 				79108FEA2B4D300200026B8D /* Main.storyboard */,
+				79C090792B4EB55700531882 /* Extension */,
 				791EC2032B4D3E1200B31565 /* collection */,
-				791EC2042B4D3E2600B31565 /* New Group */,
+				791EC2042B4D3E2600B31565 /* VC+CV */,
 				79108FFC2B4D326A00026B8D /* CityInfo.swift */,
 				79108FED2B4D300300026B8D /* Assets.xcassets */,
 				79108FEF2B4D300300026B8D /* LaunchScreen.storyboard */,
@@ -98,7 +105,6 @@
 		791EC2032B4D3E1200B31565 /* collection */ = {
 			isa = PBXGroup;
 			children = (
-				791EC21D2B4E884400B31565 /* UICollectionViewController+Extension.swift */,
 				79108FF82B4D30B900026B8D /* TravelCollectionViewController.swift */,
 				79108FFA2B4D30FE00026B8D /* TravelCollectionViewCell.swift */,
 				791EC2022B4D3CF800B31565 /* XIB */,
@@ -106,12 +112,23 @@
 			path = collection;
 			sourceTree = "<group>";
 		};
-		791EC2042B4D3E2600B31565 /* New Group */ = {
+		791EC2042B4D3E2600B31565 /* VC+CV */ = {
 			isa = PBXGroup;
 			children = (
 				791EC2052B4D3E4900B31565 /* CityViewController.swift */,
 			);
-			path = "New Group";
+			path = "VC+CV";
+			sourceTree = "<group>";
+		};
+		79C090792B4EB55700531882 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				79C0907A2B4EB57D00531882 /* UIImageView+Extension.swift */,
+				79C0907C2B4EB5A300531882 /* UILabel+Extension.swift */,
+				791EC21D2B4E884400B31565 /* UICollectionViewController+Extension.swift */,
+				79C0907E2B4EB80700531882 /* UICollectionViewCell+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +209,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C0907F2B4EB80700531882 /* UICollectionViewCell+Extension.swift in Sources */,
+				79C0907D2B4EB5A300531882 /* UILabel+Extension.swift in Sources */,
+				79C0907B2B4EB57D00531882 /* UIImageView+Extension.swift in Sources */,
 				79108FF92B4D30B900026B8D /* TravelCollectionViewController.swift in Sources */,
 				79108FE92B4D300200026B8D /* ViewController.swift in Sources */,
 				79108FFB2B4D30FE00026B8D /* TravelCollectionViewCell.swift in Sources */,

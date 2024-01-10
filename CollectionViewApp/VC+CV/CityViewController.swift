@@ -25,8 +25,8 @@ class CityViewController: UIViewController {
         super.viewDidLoad()
         
         designSegment()
-        xibRegister()
-        configureLayout()
+        xibRegister(collectionView: cityCollectionView)
+        configureLayout(collectionView: cityCollectionView)
 
         cityCollectionView.dataSource = self
         cityCollectionView.delegate = self
@@ -57,37 +57,19 @@ class CityViewController: UIViewController {
         }
         cityCollectionView.reloadData()
     }
-
     
 }
 
 
-extension CityViewController: Xib, UIConfigure, UICollectionViewDelegate, UICollectionViewDataSource  {
-    func xibRegister() {
-        let xib = UINib(nibName: Identifier.TravelXIBCollectionViewCell.rawValue, bundle: nil)
-        cityCollectionView.register(xib, forCellWithReuseIdentifier: Identifier.TravelXIBCollectionViewCell.rawValue)
-    }
-    
-    func configureLayout() {
-        let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 20
-        let width = UIScreen.main.bounds.width - (spacing * 3)
-        
-        layout.itemSize = CGSize(width: width/2, height: width/2 + 70)
-        layout.minimumLineSpacing = spacing
-        layout.minimumInteritemSpacing = spacing
-        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        cityCollectionView.collectionViewLayout = layout
-    }
-    
+extension CityViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cityList.count
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = cityCollectionView.dequeueReusableCell(withReuseIdentifier: Identifier.TravelXIBCollectionViewCell.rawValue, for: indexPath) as! TravelXIBCollectionViewCell
-        cell.configureCell(city: cityList[indexPath.item])
+        cell.configureCell(city: cityList[indexPath.item], image: cell.cityImageView, name: cell.cityName, explain: cell.cityExplain)
         return cell
     }
   

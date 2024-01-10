@@ -21,8 +21,8 @@ class TravelCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        xibRegister()
-        configureLayout()
+        xibRegister(collectionView: collectionView)
+        configureLayout(collectionView: collectionView)
 
     }
     
@@ -33,7 +33,7 @@ class TravelCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.TravelXIBCollectionViewCell.rawValue, for: indexPath) as! TravelXIBCollectionViewCell
         
-        cell.configureCell(city: cityList[indexPath.item])
+        cell.configureCell(city: cityList[indexPath.row], image: cell.cityImageView, name: cell.cityName, explain: cell.cityExplain)
         
         return cell
     }

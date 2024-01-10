@@ -16,25 +16,14 @@ class TravelCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()    // ⭐️ 잊지말기
-        cityImageView.layer.cornerRadius = ((UIScreen.main.bounds.width - (20 * 3)) / 2) / 2
-        cityImageView.contentMode = .scaleAspectFill
+        cityImageView.setImageView()
         
-        cityName.font = .boldSystemFont(ofSize: 15)
-        cityName.textAlignment = .center
+        cityName.setTitleLabel()
         
-        cityExplain.font = .systemFont(ofSize: 13)
-        cityExplain.textColor = .lightGray
-        cityExplain.textAlignment = .center
-        cityExplain.numberOfLines = 0
-        
-    }
-    
-    func configureCell(city: City) {
-        cityImageView.kf.setImage(with: URL(string: city.city_image))
-        
-        cityName.text = "\(city.city_name) | \(city.city_english_name)"
-        cityExplain.text = city.city_explain
+        cityExplain.setExplainLabel()
         
     }
    
 }
+
+

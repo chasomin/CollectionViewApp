@@ -8,17 +8,18 @@
 import UIKit
 
 
-protocol UIConfigure {
-    func configureLayout()
+protocol UIConfigure: UIViewController {
+    func configureLayout(collectionView: UICollectionView)
+    
 }
 
 protocol Xib {
-    func xibRegister()
+    func xibRegister(collectionView: UICollectionView)
 }
 
 
-extension UICollectionViewController: UIConfigure, Xib {
-    func configureLayout() {
+extension UIViewController: UIConfigure, Xib {
+    func configureLayout(collectionView: UICollectionView) {
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 20
         let width = UIScreen.main.bounds.width - (spacing * 3)
@@ -30,7 +31,7 @@ extension UICollectionViewController: UIConfigure, Xib {
         collectionView.collectionViewLayout = layout
     }
     
-    func xibRegister() {
+    func xibRegister(collectionView: UICollectionView) {
         let xib = UINib(nibName: Identifier.TravelXIBCollectionViewCell.rawValue, bundle: nil)
         collectionView.register(xib, forCellWithReuseIdentifier: Identifier.TravelXIBCollectionViewCell.rawValue)
     }
