@@ -13,10 +13,10 @@ class TravelXIBCollectionViewCell: UICollectionViewCell {
     @IBOutlet var cityName: UILabel!
     @IBOutlet var cityExplain: UILabel!
     
-    
+    var radius = ((UIScreen.main.bounds.width - (20 * 3)) / 2) / 2
     
     override func awakeFromNib() {
-        cityImageView.layer.cornerRadius = ((UIScreen.main.bounds.width - (20 * 3)) / 2) / 2
+        cityImageView.layer.cornerRadius =  radius
         cityImageView.contentMode = .scaleAspectFill
         
         cityName.font = .boldSystemFont(ofSize: 15)
