@@ -17,11 +17,17 @@ class TravelXIBCollectionViewCell: UICollectionViewCell {
     @IBOutlet var cityName: UILabel!
     @IBOutlet var cityExplain: UILabel!
     
-    var radius = ((UIScreen.main.bounds.width - (20 * 3)) / 2) / 2
+//    var radius = ((UIScreen.main.bounds.width - (20 * 3)) / 2) / 2
     
     override func awakeFromNib() {
         super.awakeFromNib()    // ⭐️ 잊지말기
-        cityImageView.layer.cornerRadius =  radius
+//        cityImageView.layer.cornerRadius =  radius
+        
+        // 시점 늦추기
+        DispatchQueue.main.async {
+            self.cityImageView.layer.cornerRadius = self.cityImageView.frame.width / 2
+        }
+        
         cityImageView.contentMode = .scaleAspectFill
         
         cityName.font = .boldSystemFont(ofSize: 15)
