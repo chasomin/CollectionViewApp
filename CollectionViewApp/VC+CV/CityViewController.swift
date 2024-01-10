@@ -15,8 +15,11 @@ enum Segment: Int {
 
 class CityViewController: UIViewController {
     var cityList = CityInfo().city
+    var segmentNum = 0
+    var arr: [City] = []
 
     @IBOutlet var domesticSegment: UISegmentedControl!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet var cityCollectionView: UICollectionView!
     
@@ -41,27 +44,14 @@ class CityViewController: UIViewController {
     }
 
     @IBAction func segmentTapped(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case Segment.all.rawValue :
-            cityList = CityInfo().city
-        case Segment.domestic.rawValue:
-            cityList = CityInfo().city.filter{
-                $0.domestic_travel == true
-            }
-        case Segment.overseas.rawValue:
-            cityList = CityInfo().city.filter{
-                $0.domestic_travel == false
-            }
-        default:
-            break
-        }
+        filterCity(item: sender.selectedSegmentIndex)
         cityCollectionView.reloadData()
     }
     
 }
 
 
-extension CityViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
+extension CityViewController: UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate  {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cityList.count
@@ -72,5 +62,56 @@ extension CityViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.configureCell(city: cityList[indexPath.item], image: cell.cityImageView, name: cell.cityName, explain: cell.cityExplain)
         return cell
     }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterCity(item: segmentNum)
+        arr = []
+        var text = searchText.lowercased()
+        
+        print(text)
+        
+        if text != "" {
+            cityList.map {
+                if $0.city_english_name.lowercased().contains(text) {
+                    arr.append($0)
+                } else if $0.city_english_name.lowercased().contains(text) {
+                    arr.append($0)
+                } else if $0.city_explain.lowercased().contains(text) {
+                    arr.append($0)
+                }
+            }
+            cityList = arr
+            print(cityList)
+        } else {
+            filterCity(item: segmentNum)
+        }
+        
+        cityCollectionView.reloadData()
+    }
+    
+    
+    
+    func filterCity(item: Int) {
+        switch item {
+        case Segment.all.rawValue :
+            cityList = CityInfo().city
+            segmentNum = 0
+        case Segment.domestic.rawValue:
+            cityList = CityInfo().city.filter{
+                $0.domestic_travel == true
+            }
+            segmentNum = 1
+        case Segment.overseas.rawValue:
+            cityList = CityInfo().city.filter{
+                $0.domestic_travel == false
+            }
+            segmentNum = 2
+        default:
+            break
+        }
+    }
+    
+
   
 }

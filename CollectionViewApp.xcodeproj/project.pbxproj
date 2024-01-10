@@ -24,6 +24,7 @@
 		79C0907B2B4EB57D00531882 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C0907A2B4EB57D00531882 /* UIImageView+Extension.swift */; };
 		79C0907D2B4EB5A300531882 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C0907C2B4EB5A300531882 /* UILabel+Extension.swift */; };
 		79C0907F2B4EB80700531882 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C0907E2B4EB80700531882 /* UICollectionViewCell+Extension.swift */; };
+		79DF8F912B4EBB96001BD787 /* City.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DF8F902B4EBB96001BD787 /* City.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		79C0907A2B4EB57D00531882 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		79C0907C2B4EB5A300531882 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		79C0907E2B4EB80700531882 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
+		79DF8F902B4EBB96001BD787 /* City.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = City.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				791EC2052B4D3E4900B31565 /* CityViewController.swift */,
+				79DF8F902B4EBB96001BD787 /* City.storyboard */,
 			);
 			path = "VC+CV";
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				791EC2012B4D3AF700B31565 /* TravelXIBCollectionViewCell.xib in Resources */,
 				79108FF12B4D300300026B8D /* LaunchScreen.storyboard in Resources */,
 				79108FEE2B4D300300026B8D /* Assets.xcassets in Resources */,
+				79DF8F912B4EBB96001BD787 /* City.storyboard in Resources */,
 				79108FEC2B4D300200026B8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
