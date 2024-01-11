@@ -11,7 +11,7 @@ class CityListViewController: UIViewController {
 
     static let id = "CityListViewController"
     
-    let travel = TravelInfo().travel
+    var travel = TravelInfo().travel
     
     
     @IBOutlet var cityListTableView: UITableView!
@@ -24,6 +24,11 @@ class CityListViewController: UIViewController {
 
     }
     
+    @objc func likeButtonTapped(sender: UIButton) {
+        travel[sender.tag].like?.toggle()       
+        cityListTableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .fade)
+
+    }
 
 }
 
@@ -65,13 +70,19 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else {
             let cell = cityListTableView.dequeueReusableCell(withIdentifier: CityTableViewCell.id, for: indexPath) as! CityTableViewCell
+            
+            cell.likeButton.tag = indexPath.item
             cell.configureCell(data: travel[indexPath.item])
+            cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+
             cell.selectionStyle = .none
             
             return cell
         }
         
     }
+
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if travel[indexPath.item].ad {

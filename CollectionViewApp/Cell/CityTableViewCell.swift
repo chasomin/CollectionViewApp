@@ -25,6 +25,8 @@ class CityTableViewCell: UITableViewCell {
         
     }
     
+
+    
 }
 
 
@@ -55,8 +57,9 @@ extension CityTableViewCell {
         likeButton.tintColor = .white
         likeButton.layer.shadowColor = UIColor(.gray).cgColor
         likeButton.layer.shadowOpacity = 0.5
-        
     }
+    
+
     
     func configureCell(data: Travel) {
         if !data.ad {
@@ -77,8 +80,9 @@ extension CityTableViewCell {
             } else {
                 likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
             }
-            
         }
     }
+    
+
 
 }
