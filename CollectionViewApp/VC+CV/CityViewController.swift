@@ -31,9 +31,26 @@ class CityViewController: UIViewController {
         xibRegister(collectionView: cityCollectionView)
         configureLayout(collectionView: cityCollectionView)
 
+        setViewController()
+    }
+    
+    
+
+
+    @IBAction func segmentTapped(_ sender: UISegmentedControl) {
+        filterCity(item: sender.selectedSegmentIndex)
+        cityCollectionView.reloadData()
+    }
+    
+}
+
+
+
+extension CityViewController {
+    func setViewController() {
         cityCollectionView.dataSource = self
         cityCollectionView.delegate = self
-
+        searchBar.delegate = self
     }
     
     
@@ -42,12 +59,6 @@ class CityViewController: UIViewController {
         domesticSegment.setTitle("모두", forSegmentAt: 0)
         domesticSegment.setTitle("국내", forSegmentAt: 1)
     }
-
-    @IBAction func segmentTapped(_ sender: UISegmentedControl) {
-        filterCity(item: sender.selectedSegmentIndex)
-        cityCollectionView.reloadData()
-    }
-    
 }
 
 
@@ -61,6 +72,16 @@ extension CityViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = cityCollectionView.dequeueReusableCell(withReuseIdentifier: Identifier.TravelXIBCollectionViewCell.rawValue, for: indexPath) as! TravelXIBCollectionViewCell
         cell.configureCell(city: cityList[indexPath.item], image: cell.cityImageView, name: cell.cityName, explain: cell.cityExplain)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "CityList", bundle: nil)
+        
+
+        let vc = sb.instantiateViewController(withIdentifier: CityListViewController.id) as! CityListViewController
+
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

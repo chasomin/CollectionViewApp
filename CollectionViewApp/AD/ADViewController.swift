@@ -9,21 +9,29 @@ import UIKit
 
 class ADViewController: UIViewController {
 
+    static let id = "ADViewController"
+    
+    @IBOutlet var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        label.text = "광고 화면"
+        label.font = .boldSystemFont(ofSize: 20)
+        label.textAlignment = .center
+        navigationItem.title = "광고 화면"
+        setBarButtonItem()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setBarButtonItem() {
+        let leftImage = UIImage(systemName: "xmark")
+        let leftButton = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
+        navigationItem.leftBarButtonItem = leftButton
     }
-    */
+    
+    @objc func leftBarButtonItemClicked() {
+        dismiss(animated: true)
+    }
+
 
 }

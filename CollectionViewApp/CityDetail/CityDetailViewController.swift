@@ -8,22 +8,20 @@
 import UIKit
 
 class CityDetailViewController: UIViewController {
+    static let id = "CityDetailViewController"
 
+    @IBOutlet var label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        label.text = "관광지 화면"
+        label.font = .boldSystemFont(ofSize: 20)
+        label.textAlignment = .center
+        
+        navigationItem.title = "관광지 화면"
 
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
