@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UMc-du-GaO">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="103" width="373" height="715"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -26,7 +26,7 @@
                             <constraint firstItem="UMc-du-GaO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="L52-cM-mxs"/>
                             <constraint firstItem="UMc-du-GaO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="NL5-Oj-s3o"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="UMc-du-GaO" secondAttribute="bottom" id="dw5-Z3-vPY"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UMc-du-GaO" secondAttribute="trailing" id="kZX-qj-pSS"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UMc-du-GaO" secondAttribute="trailing" constant="20" id="kZX-qj-pSS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xGa-oL-JRq"/>

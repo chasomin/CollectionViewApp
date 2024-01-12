@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,6 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Kn-M2-AJD">
+                        <rect key="frame" x="20" y="0.0" width="300" height="70"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKA-sd-yEb">
                         <rect key="frame" x="55" y="25" width="210" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -34,10 +39,14 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="P8O-fy-0PO" secondAttribute="trailing" constant="5" id="4uV-Fy-lH1"/>
+                    <constraint firstItem="6Kn-M2-AJD" firstAttribute="trailing" secondItem="P8O-fy-0PO" secondAttribute="trailing" constant="5" id="4uV-Fy-lH1"/>
                     <constraint firstItem="KKA-sd-yEb" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="DxC-9Z-39k"/>
+                    <constraint firstItem="6Kn-M2-AJD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Nyg-Bj-cjJ"/>
+                    <constraint firstAttribute="bottom" secondItem="6Kn-M2-AJD" secondAttribute="bottom" id="Q74-ac-HvC"/>
+                    <constraint firstItem="6Kn-M2-AJD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="R30-DR-CXc"/>
                     <constraint firstItem="P8O-fy-0PO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="XX0-9H-XtL"/>
                     <constraint firstItem="P8O-fy-0PO" firstAttribute="leading" secondItem="KKA-sd-yEb" secondAttribute="trailing" constant="20" id="dJf-WO-hRm"/>
+                    <constraint firstAttribute="trailing" secondItem="6Kn-M2-AJD" secondAttribute="trailing" id="gfC-37-X4f"/>
                     <constraint firstItem="KKA-sd-yEb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jk2-Ki-P1j"/>
                 </constraints>
             </tableViewCellContentView>
@@ -45,8 +54,14 @@
             <connections>
                 <outlet property="ADLabel" destination="P8O-fy-0PO" id="zOM-LA-gQ4"/>
                 <outlet property="titleLabel" destination="KKA-sd-yEb" id="O5A-bY-rq7"/>
+                <outlet property="view" destination="6Kn-M2-AJD" id="IYq-kg-H6O"/>
             </connections>
             <point key="canvasLocation" x="138.93129770992365" y="10.563380281690142"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

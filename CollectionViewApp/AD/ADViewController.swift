@@ -26,6 +26,7 @@ class ADViewController: UIViewController {
     func setBarButtonItem() {
         let leftImage = UIImage(systemName: "xmark")
         let leftButton = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: #selector(leftBarButtonItemClicked))
+        leftButton.tintColor = .black
         navigationItem.leftBarButtonItem = leftButton
     }
     

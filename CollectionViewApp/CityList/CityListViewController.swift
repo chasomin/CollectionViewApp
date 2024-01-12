@@ -39,6 +39,7 @@ extension CityListViewController {
     
     func setTableView() {
         navigationItem.title = "도시 상세 정보"
+        cityListTableView.showsVerticalScrollIndicator = false
 
         cityListTableView.delegate = self
         cityListTableView.dataSource = self
@@ -64,9 +65,7 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         if travel[indexPath.item].ad {
             let cell = cityListTableView.dequeueReusableCell(withIdentifier: ADTableViewCell.id, for: indexPath) as! ADTableViewCell
             cell.configureCell(data: travel[indexPath.item])
-            
-            cell.selectionStyle = .none
-            
+                        
             return cell
         } else {
             let cell = cityListTableView.dequeueReusableCell(withIdentifier: CityTableViewCell.id, for: indexPath) as! CityTableViewCell
@@ -75,7 +74,6 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.configureCell(data: travel[indexPath.item])
             cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
 
-            cell.selectionStyle = .none
             
             return cell
         }

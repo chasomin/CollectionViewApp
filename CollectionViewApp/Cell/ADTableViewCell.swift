@@ -11,6 +11,7 @@ class ADTableViewCell: UITableViewCell {
     
     static let id = "ADTableViewCell"
 
+    @IBOutlet var view: UIView!
     @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet var ADLabel: UILabel!
@@ -18,6 +19,7 @@ class ADTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         designCell()
+
     }
     
 
@@ -27,7 +29,8 @@ class ADTableViewCell: UITableViewCell {
 
 extension ADTableViewCell {
     func designCell() {
-        layer.cornerRadius = 10
+        view.layer.cornerRadius = 10
+        view.backgroundColor = UIColor(cgColor: CGColor(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1), alpha: 1))
         
         titleLabel.font = .boldSystemFont(ofSize: 15)
         titleLabel.textAlignment = .center
@@ -41,8 +44,7 @@ extension ADTableViewCell {
         ADLabel.textAlignment = .center
         ADLabel.font = .systemFont(ofSize: 15)
         
-        self.backgroundColor = UIColor(cgColor: CGColor(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1), alpha: 1))
-        
+        selectionStyle = .none
     }
     
     

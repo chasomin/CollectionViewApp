@@ -26,7 +26,6 @@ class CityViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         designSegment()
         xibRegister(collectionView: cityCollectionView)
         configureLayout(collectionView: cityCollectionView)
@@ -51,6 +50,7 @@ extension CityViewController {
         cityCollectionView.dataSource = self
         cityCollectionView.delegate = self
         searchBar.delegate = self
+        navigationController?.navigationBar.tintColor = .black
     }
     
     
