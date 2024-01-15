@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RqT-RN-CDF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Buc-Hx-28L">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -79,12 +79,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fb9-CE-SeJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1993.1297709923663" y="1395.0704225352113"/>
+            <point key="canvasLocation" x="2919.8473282442746" y="1395.0704225352113"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--인시 도시-->
         <scene sceneID="qPo-jh-jFW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RqT-RN-CDF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="인시 도시" image="magazine" catalog="system" id="17m-eI-BXQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YDs-ly-cWK">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -97,10 +98,59 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fek-ub-GxY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1993.1297709923663" y="1395.0704225352113"/>
+        </scene>
+        <!--Theater-->
+        <scene sceneID="Dua-nM-2zh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Theater" id="LSH-hs-4cJ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="R8w-xV-wpk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uT3-87-UnD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2908.3969465648852" y="1846.4788732394368"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="BV8-cn-FlE">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Buc-Hx-28L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b5F-sK-cGi">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="RqT-RN-CDF" kind="relationship" relationship="viewControllers" id="Kb6-7c-vt8"/>
+                        <segue destination="kIU-vU-oHb" kind="relationship" relationship="viewControllers" id="HBD-Vs-E3I"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ws-Xn-a0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="1066.4122137404579" y="1395.0704225352113"/>
+        </scene>
+        <!--영화관-->
+        <scene sceneID="ktF-d0-Gnt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kIU-vU-oHb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="영화관" image="movieclapper" catalog="system" id="x1W-sR-55s"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xia-EE-XkF">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LSH-hs-4cJ" kind="relationship" relationship="rootViewController" id="3Mu-NZ-zbY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UxX-YD-Btl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1993" y="2117"/>
         </scene>
     </scenes>
     <resources>
+        <image name="magazine" catalog="system" width="110" height="128"/>
+        <image name="movieclapper" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

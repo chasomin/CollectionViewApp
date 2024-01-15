@@ -36,6 +36,10 @@
 		79C0907D2B4EB5A300531882 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C0907C2B4EB5A300531882 /* UILabel+Extension.swift */; };
 		79C0907F2B4EB80700531882 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C0907E2B4EB80700531882 /* UICollectionViewCell+Extension.swift */; };
 		79DF8F912B4EBB96001BD787 /* City.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DF8F902B4EBB96001BD787 /* City.storyboard */; };
+		79F9BB672B55284C00D27A79 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F9BB662B55284C00D27A79 /* UITableViewCell+Extension.swift */; };
+		79F9BB6C2B5541D000D27A79 /* Theater.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F9BB6B2B5541D000D27A79 /* Theater.storyboard */; };
+		79F9BB6E2B5542A400D27A79 /* TheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F9BB6D2B5542A400D27A79 /* TheaterViewController.swift */; };
+		79F9BB702B55437B00D27A79 /* TheaterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F9BB6F2B55437B00D27A79 /* TheaterData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +73,10 @@
 		79C0907C2B4EB5A300531882 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		79C0907E2B4EB80700531882 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		79DF8F902B4EBB96001BD787 /* City.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = City.storyboard; sourceTree = "<group>"; };
+		79F9BB662B55284C00D27A79 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		79F9BB6B2B5541D000D27A79 /* Theater.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Theater.storyboard; sourceTree = "<group>"; };
+		79F9BB6D2B5542A400D27A79 /* TheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheaterViewController.swift; sourceTree = "<group>"; };
+		79F9BB6F2B55437B00D27A79 /* TheaterData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheaterData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,7 @@
 				79AA69E12B4FD2CD00FF45BC /* AD */,
 				79AA69E02B4FD25800FF45BC /* Cell */,
 				79108FFC2B4D326A00026B8D /* CityInfo.swift */,
+				79F9BB682B5541AE00D27A79 /* Theater */,
 				79AA69F72B4FEFC300FF45BC /* TravelModel.swift */,
 				79108FED2B4D300300026B8D /* Assets.xcassets */,
 				79108FEF2B4D300300026B8D /* LaunchScreen.storyboard */,
@@ -187,8 +196,19 @@
 				79C0907C2B4EB5A300531882 /* UILabel+Extension.swift */,
 				791EC21D2B4E884400B31565 /* UICollectionViewController+Extension.swift */,
 				79C0907E2B4EB80700531882 /* UICollectionViewCell+Extension.swift */,
+				79F9BB662B55284C00D27A79 /* UITableViewCell+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		79F9BB682B5541AE00D27A79 /* Theater */ = {
+			isa = PBXGroup;
+			children = (
+				79F9BB6F2B55437B00D27A79 /* TheaterData.swift */,
+				79F9BB6B2B5541D000D27A79 /* Theater.storyboard */,
+				79F9BB6D2B5542A400D27A79 /* TheaterViewController.swift */,
+			);
+			path = Theater;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +280,7 @@
 				791EC2012B4D3AF700B31565 /* TravelXIBCollectionViewCell.xib in Resources */,
 				79108FF12B4D300300026B8D /* LaunchScreen.storyboard in Resources */,
 				79AA69F62B4FE90900FF45BC /* ADTableViewCell.xib in Resources */,
+				79F9BB6C2B5541D000D27A79 /* Theater.storyboard in Resources */,
 				79108FEE2B4D300300026B8D /* Assets.xcassets in Resources */,
 				79DF8F912B4EBB96001BD787 /* City.storyboard in Resources */,
 				79AA69EE2B4FD34F00FF45BC /* CityList.storyboard in Resources */,
@@ -282,6 +303,7 @@
 				79C0907B2B4EB57D00531882 /* UIImageView+Extension.swift in Sources */,
 				79108FF92B4D30B900026B8D /* TravelCollectionViewController.swift in Sources */,
 				79AA69F52B4FE90900FF45BC /* ADTableViewCell.swift in Sources */,
+				79F9BB672B55284C00D27A79 /* UITableViewCell+Extension.swift in Sources */,
 				79108FE92B4D300200026B8D /* ViewController.swift in Sources */,
 				79108FFB2B4D30FE00026B8D /* TravelCollectionViewCell.swift in Sources */,
 				791EC2062B4D3E4900B31565 /* CityViewController.swift in Sources */,
@@ -292,6 +314,8 @@
 				79108FFD2B4D326A00026B8D /* CityInfo.swift in Sources */,
 				791EC21E2B4E884400B31565 /* UICollectionViewController+Extension.swift in Sources */,
 				79AA69EB2B4FD33600FF45BC /* CityTableViewCell.swift in Sources */,
+				79F9BB702B55437B00D27A79 /* TheaterData.swift in Sources */,
+				79F9BB6E2B5542A400D27A79 /* TheaterViewController.swift in Sources */,
 				79108FE72B4D300200026B8D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

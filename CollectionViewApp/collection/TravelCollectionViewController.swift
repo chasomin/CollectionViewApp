@@ -9,10 +9,6 @@ import UIKit
 
 
 
-enum Identifier: String {
-    case TravelCollectionViewCell
-    case TravelXIBCollectionViewCell
-}
 
 class TravelCollectionViewController: UICollectionViewController {
 
@@ -31,7 +27,7 @@ class TravelCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.TravelXIBCollectionViewCell.rawValue, for: indexPath) as! TravelXIBCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TravelXIBCollectionViewCell.id, for: indexPath) as! TravelXIBCollectionViewCell
         
         cell.configureCell(city: cityList[indexPath.row], image: cell.cityImageView, name: cell.cityName, explain: cell.cityExplain)
         

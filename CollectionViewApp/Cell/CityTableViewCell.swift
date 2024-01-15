@@ -9,8 +9,6 @@ import UIKit
 
 class CityTableViewCell: UITableViewCell {
 
-    static let id = "CityTableViewCell"
-
     @IBOutlet var TitleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     

@@ -32,7 +32,7 @@ extension UIViewController: UIConfigure, Xib {
     }
     
     func xibRegister(collectionView: UICollectionView) {
-        let xib = UINib(nibName: Identifier.TravelXIBCollectionViewCell.rawValue, bundle: nil)
-        collectionView.register(xib, forCellWithReuseIdentifier: Identifier.TravelXIBCollectionViewCell.rawValue)
+        let xib = UINib(nibName: TravelXIBCollectionViewCell.id, bundle: nil)
+        collectionView.register(xib, forCellWithReuseIdentifier: TravelXIBCollectionViewCell.id)
     }
 }

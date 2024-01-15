@@ -23,7 +23,7 @@ class CityViewController: UIViewController {
             cityCollectionView.reloadData()
         }
     }
-
+    var text = ""
 
     @IBOutlet var domesticSegment: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -66,38 +66,37 @@ extension CityViewController {
         domesticSegment.setTitle("모두", forSegmentAt: 0)
         domesticSegment.setTitle("국내", forSegmentAt: 1)
     }
+    
+    func filterCity(item: Int) {
+        switch item {
+        case Segment.all.rawValue :
+            cityList = originalList
+            segmentNum = 0
+        case Segment.domestic.rawValue:
+            cityList = originalList.filter{
+                $0.domestic_travel == true
+            }
+            segmentNum = 1
+        case Segment.overseas.rawValue:
+            cityList = originalList.filter{
+                $0.domestic_travel == false
+            }
+            segmentNum = 2
+        default:
+            break
+        }
+    }
+
 }
 
-
-extension CityViewController: UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate  {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        cityList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = cityCollectionView.dequeueReusableCell(withReuseIdentifier: Identifier.TravelXIBCollectionViewCell.rawValue, for: indexPath) as! TravelXIBCollectionViewCell
-        cell.configureCell(city: cityList[indexPath.item], image: cell.cityImageView, name: cell.cityName, explain: cell.cityExplain)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sb = UIStoryboard(name: "CityList", bundle: nil)
-        
-
-        let vc = sb.instantiateViewController(withIdentifier: CityListViewController.id) as! CityListViewController
-
-        
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
+extension CityViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //        filterCity(item: segmentNum)
         
         var filterData: [City] = []
         
-        var text = searchText.lowercased()
+        text = searchText.lowercased()
         
         if text.contains(" ") {
             cityList = []
@@ -115,6 +114,7 @@ extension CityViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
                 print(filterData)
                 cityList = filterData
+                
             case 1 :
                 originalList.map {
                     if $0.domestic_travel == true {
@@ -154,28 +154,30 @@ extension CityViewController: UICollectionViewDelegate, UICollectionViewDataSour
         view.endEditing(true)
     }
     
-    
-    
-    func filterCity(item: Int) {
-        switch item {
-        case Segment.all.rawValue :
-            cityList = originalList
-            segmentNum = 0
-        case Segment.domestic.rawValue:
-            cityList = originalList.filter{
-                $0.domestic_travel == true
-            }
-            segmentNum = 1
-        case Segment.overseas.rawValue:
-            cityList = originalList.filter{
-                $0.domestic_travel == false
-            }
-            segmentNum = 2
-        default:
-            break
-        }
+
+}
+
+
+extension CityViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        cityList.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = cityCollectionView.dequeueReusableCell(withReuseIdentifier: TravelXIBCollectionViewCell.id, for: indexPath) as! TravelXIBCollectionViewCell
+        cell.configureCell(city: cityList[indexPath.item], image: cell.cityImageView, name: cell.cityName, explain: cell.cityExplain)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "CityList", bundle: nil)
+        
 
-  
+        let vc = sb.instantiateViewController(withIdentifier: CityListViewController.id) as! CityListViewController
+
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
 }
