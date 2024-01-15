@@ -16,7 +16,7 @@ enum Identifier: String {
 
 class TravelCollectionViewController: UICollectionViewController {
 
-    let cityList = CityInfo().city
+    let cityList = CityInfo.city
     
     override func viewDidLoad() {
         super.viewDidLoad()

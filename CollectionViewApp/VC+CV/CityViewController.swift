@@ -14,9 +14,16 @@ enum Segment: Int {
 }
 
 class CityViewController: UIViewController {
-    var cityList = CityInfo().city
     var segmentNum = 0
-    var arr: [City] = []
+    
+    let originalList = CityInfo.city
+    
+    var cityList = CityInfo.city {
+        didSet {
+            cityCollectionView.reloadData()
+        }
+    }
+
 
     @IBOutlet var domesticSegment: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -38,7 +45,7 @@ class CityViewController: UIViewController {
 
     @IBAction func segmentTapped(_ sender: UISegmentedControl) {
         filterCity(item: sender.selectedSegmentIndex)
-        cityCollectionView.reloadData()
+        searchBar.text = ""
     }
     
 }
@@ -86,29 +93,65 @@ extension CityViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filterCity(item: segmentNum)
-        arr = []
+//        filterCity(item: segmentNum)
+        
+        var filterData: [City] = []
+        
         var text = searchText.lowercased()
         
-        print(text)
-        
-        if text != "" {
-            cityList.map {
-                if $0.city_english_name.lowercased().contains(text) {
-                    arr.append($0)
-                } else if $0.city_english_name.lowercased().contains(text) {
-                    arr.append($0)
-                } else if $0.city_explain.lowercased().contains(text) {
-                    arr.append($0)
+        if text.contains(" ") {
+            cityList = []
+        } else if text != "" {
+            switch segmentNum {
+            case 0 :
+                originalList.map {
+                    if $0.city_name.lowercased().contains(text) {
+                        filterData.append($0)
+                    } else if $0.city_english_name.lowercased().contains(text) {
+                        filterData.append($0)
+                    } else if $0.city_explain.lowercased().contains(text) {
+                        filterData.append($0)
+                    }
                 }
+                print(filterData)
+                cityList = filterData
+            case 1 :
+                originalList.map {
+                    if $0.domestic_travel == true {
+                        if $0.city_name.lowercased().contains(text) {
+                            filterData.append($0)
+                        } else if $0.city_english_name.lowercased().contains(text) {
+                            filterData.append($0)
+                        } else if $0.city_explain.lowercased().contains(text) {
+                            filterData.append($0)
+                        }
+                    }
+                }
+                cityList = filterData
+                segmentNum = 1
+            case 2 :
+                originalList.map {
+                    if $0.domestic_travel == false {
+                        if $0.city_name.lowercased().contains(text) {
+                            filterData.append($0)
+                        } else if $0.city_english_name.lowercased().contains(text) {
+                            filterData.append($0)
+                        } else if $0.city_explain.lowercased().contains(text) {
+                            filterData.append($0)
+                        }
+                    }
+                }
+                cityList = filterData
+            default:
+                break
             }
-            cityList = arr
-            print(cityList)
         } else {
             filterCity(item: segmentNum)
         }
-        
-        cityCollectionView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
     
     
@@ -116,15 +159,15 @@ extension CityViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func filterCity(item: Int) {
         switch item {
         case Segment.all.rawValue :
-            cityList = CityInfo().city
+            cityList = originalList
             segmentNum = 0
         case Segment.domestic.rawValue:
-            cityList = CityInfo().city.filter{
+            cityList = originalList.filter{
                 $0.domestic_travel == true
             }
             segmentNum = 1
         case Segment.overseas.rawValue:
-            cityList = CityInfo().city.filter{
+            cityList = originalList.filter{
                 $0.domestic_travel == false
             }
             segmentNum = 2
