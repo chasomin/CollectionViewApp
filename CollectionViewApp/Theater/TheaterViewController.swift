@@ -80,7 +80,7 @@ extension TheaterViewController {
 
 extension TheaterViewController {
     func all() {
-        theaterList.map {
+        theaterList.forEach {
             let coordinate = CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
             
             let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 15000, longitudinalMeters: 15000)
@@ -96,7 +96,7 @@ extension TheaterViewController {
         
     }
     func filter() {
-        theaterList.map {
+        theaterList.forEach {
             if $0.type == theaterType {
                 let coordinate = CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
                 
@@ -116,7 +116,7 @@ extension TheaterViewController {
     
     
     func remove() {
-        mapView.annotations.map {
+        mapView.annotations.forEach {
             mapView.removeAnnotation($0)
         }
     }

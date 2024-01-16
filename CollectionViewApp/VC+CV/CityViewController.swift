@@ -103,7 +103,7 @@ extension CityViewController: UISearchBarDelegate {
         } else if text != "" {
             switch segmentNum {
             case 0 :
-                originalList.map {
+                originalList.forEach {
                     if $0.city_name.lowercased().contains(text) {
                         filterData.append($0)
                     } else if $0.city_english_name.lowercased().contains(text) {
@@ -116,7 +116,7 @@ extension CityViewController: UISearchBarDelegate {
                 cityList = filterData
                 
             case 1 :
-                originalList.map {
+                originalList.forEach {
                     if $0.domestic_travel == true {
                         if $0.city_name.lowercased().contains(text) {
                             filterData.append($0)
@@ -130,7 +130,7 @@ extension CityViewController: UISearchBarDelegate {
                 cityList = filterData
                 segmentNum = 1
             case 2 :
-                originalList.map {
+                originalList.forEach {
                     if $0.domestic_travel == false {
                         if $0.city_name.lowercased().contains(text) {
                             filterData.append($0)
