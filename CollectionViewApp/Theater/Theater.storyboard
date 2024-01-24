@@ -21,17 +21,32 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1l8-QC-jYg">
+                                <rect key="frame" x="319" y="744" width="59" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1l8-QC-jYg" secondAttribute="height" id="6vt-6U-By4"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="locationButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bQ4-oc-xuY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lDl-Fb-KSL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Ad9-8X-8vi"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="lDl-Fb-KSL" secondAttribute="bottom" id="BhZ-LX-kPW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1l8-QC-jYg" secondAttribute="bottom" constant="15" id="MTJ-wX-fcI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lDl-Fb-KSL" secondAttribute="trailing" id="Pcr-hk-xJx"/>
+                            <constraint firstItem="1l8-QC-jYg" firstAttribute="width" secondItem="lDl-Fb-KSL" secondAttribute="width" multiplier="0.15" id="dgb-u9-59H"/>
                             <constraint firstItem="lDl-Fb-KSL" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="grj-XG-kgR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1l8-QC-jYg" secondAttribute="trailing" constant="15" id="pzT-uB-sRH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="locationButton" destination="1l8-QC-jYg" id="QOm-vj-Bbb"/>
                         <outlet property="mapView" destination="lDl-Fb-KSL" id="oar-x7-P1u"/>
                     </connections>
                 </viewController>
